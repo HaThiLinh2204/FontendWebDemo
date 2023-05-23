@@ -1,0 +1,93 @@
+.header-page {
+  padding: 0 25px;
+}
+.header-page .topbar {
+  background: #f2f2f2;
+  font-size: 14px;
+  padding: 10px 0;
+  display: flex;
+}
+.header-page .topbar .leftbar,
+.rightbar {
+  width: 50%;
+}
+
+.header-page .leftbar {
+  display: flex;
+  flex-direction: row;
+}
+.header-page .leftbar p {
+  width: 70%;
+  font-weight: bold;
+}
+
+.header-page .leftbar .header-icon {
+  text-align: center;
+  padding: 14px 10px;
+}
+
+.header-page .rightbar {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.header-page .rightbar i {
+  width: 16%;
+  text-align: center;
+  padding: 14px 10px;
+  font-weight: bold;
+  display: flex;
+}
+.header-page .rightbar i svg{
+    height: 20px;
+    width: 20px;
+}
+
+.header-page .rightbar i p{
+    padding: 0px 5px;
+    margin: 0;
+}
+
+.header-page .downbar {
+  display: flex;
+  background-color: #fff;
+}
+
+.header-page.header {
+  width: 15%;
+  padding: 20px;
+  color: #000000;
+}
+
+.header-page .title {
+  margin: 0;
+}
+
+.header-page .tabbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  width: 70%;
+
+}
+
+.header-page .tabbar button{
+    font-size: 18px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button.active {
+  font-weight: bold;
+  color: #333;
+}
+
+button:hover {
+  color: #333;
+}
