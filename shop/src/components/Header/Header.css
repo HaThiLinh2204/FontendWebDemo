@@ -37,15 +37,20 @@
   padding: 14px 10px;
   font-weight: bold;
   display: flex;
+
 }
-.header-page .rightbar i svg{
-    height: 20px;
-    width: 20px;
+.header-page .rightbar i a{
+  text-decoration: none;
+  color: #000000;
+}
+.header-page .rightbar i svg {
+  height: 20px;
+  width: 20px;
 }
 
-.header-page .rightbar i p{
-    padding: 0px 5px;
-    margin: 0;
+.header-page .rightbar i p {
+  padding: 0px 5px;
+  margin: 0;
 }
 
 .header-page .downbar {
@@ -53,14 +58,17 @@
   background-color: #fff;
 }
 
-.header-page.header {
+.header-page .header {
   width: 15%;
   padding: 20px;
   color: #000000;
 }
 
-.header-page .title {
+.header-page .title-page {
   margin: 0;
+  font-size: 50px;
+  color: #252a2b;
+  text-decoration: none;
 }
 
 .header-page .tabbar {
@@ -68,26 +76,22 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  width: 70%;
-
+  width: 50%;
 }
 
-.header-page .tabbar button{
-    font-size: 18px;
+.header-page .tabbar .menu-tab {
+  display: flex;
+  justify-content: space-around;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+.header-page .tabbar .menu-tab .menu-tab-item {
+  margin: auto 20px;
+  color: #000000;
 }
-
-button.active {
-  font-weight: bold;
-  color: #333;
-}
-
-button:hover {
-  color: #333;
+.header-page .menu-tab-item a {
+  color: #252a2b;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
 }

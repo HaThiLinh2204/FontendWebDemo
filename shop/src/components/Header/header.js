@@ -7,12 +7,6 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import "./Header.css";
 
 function Header() {
-  const [activeTab, setActiveTab] = useState("home");
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
-
   return (
     <div className="header-page">
       <div className="topbar">
@@ -25,59 +19,41 @@ function Header() {
         </div>
         <div className="rightbar">
           <i className="">
-            <PermIdentityIcon />
-            <p>Tài khoản</p>
-          </i>
-          <i className="">
             <BsFillCartPlusFill />
             <p>Giỏ hàng </p>
+          </i>
+          <i className="">
+            <PermIdentityIcon />
+            <Link to="/login">Tài khoản</Link>
           </i>
         </div>
       </div>
       <div className="downbar">
-        <header className="header">
-          <h1 className="title-page">FURLA</h1>
-        </header>
+        <div className="header">
+          <Link to="/" className="title-page">
+            FURLA
+          </Link>
+        </div>
         <div className="tabbar header-tab">
-          <Link to="/">
-            <button
-              className={activeTab === "home" ? "active" : ""}
-              onClick={() => handleTabClick("home")}
-            >
-              Trang chủ
-            </button>
-          </Link>
-          <button
-            className={activeTab === "giay" ? "active" : ""}
-            onClick={() => handleTabClick("about")}
-          >
-            Giày
-          </button>
-          <button
-            className={activeTab === "about" ? "active" : ""}
-            onClick={() => handleTabClick("about")}
-          >
-            Trang sức
-          </button>
-          <Link to="/giay">
-            <button
-              className={activeTab === "phukien" ? "active" : ""}
-              onClick={() => handleTabClick("phukien")}
-            >
-              Phụ kiện
-            </button>
-          </Link>
-          <button
-            className={activeTab === "contact" ? "active" : ""}
-            onClick={() => handleTabClick("contact")}
-          >
-            Thời trang
-          </button>
+          <div className="menu-tab">
+            <div className="menu-tab-item">
+              <Link to="/">TRANG CHỦ</Link>
+            </div>
+            <div className="menu-tab-item">
+              <Link to="/">GIÀY</Link>
+            </div>
+            <div className="menu-tab-item">
+              <Link to="/">TÚI</Link>
+            </div>
+            <div className="menu-tab-item">
+              <Link to="/">THỜI TRANG</Link>
+            </div>
+            <div className="menu-tab-item">
+              <Link to="/">CUSTOMER</Link>
+            </div>
+          </div>
         </div>
       </div>
-      {/* {activeTab === "home" && <p>This is the home page content.</p>} */}
-      {activeTab === "about" && <p>This is the about page content.</p>}
-      {activeTab === "contact" && <p>This is the contact page content.</p>}
     </div>
   );
 }
