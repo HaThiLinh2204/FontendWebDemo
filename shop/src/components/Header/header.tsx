@@ -1,10 +1,10 @@
 import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { BsFillTelephonePlusFill, BsFillCartPlusFill } from "react-icons/bs";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 import "./Header.css";
+
 
 function Header() {
   return (
@@ -24,32 +24,39 @@ function Header() {
           </i>
           <i className="">
             <PermIdentityIcon />
-            <Link to="/login">Tài khoản</Link>
+            <a href="/login">Tài khoản</a>
           </i>
         </div>
       </div>
       <div className="downbar">
         <div className="header">
-          <Link to="/" className="title-page">
+
+          <a href="/" className="title-page">
             FURLA
-          </Link>
+          </a>
+
         </div>
         <div className="tabbar header-tab">
           <div className="menu-tab">
             <div className="menu-tab-item">
-              <Link to="/">TRANG CHỦ</Link>
+              <a href="/">TRANG CHỦ</a>
             </div>
             <div className="menu-tab-item">
-              <Link to="/">GIÀY</Link>
+              <a href="/giay">GIÀY</a>
             </div>
             <div className="menu-tab-item">
-              <Link to="/">TÚI</Link>
+              <a href="/tui">TÚI</a>
             </div>
             <div className="menu-tab-item">
-              <Link to="/">THỜI TRANG</Link>
+              <a href="/phukien">PHỤ KIỆN</a>
             </div>
             <div className="menu-tab-item">
-              <Link to="/">CUSTOMER</Link>
+              <a href="/">THỜI TRANG</a>
+
+            </div>
+            <div className="menu-tab-item">
+              <a href="/">CUSTOMER</a>
+
             </div>
           </div>
         </div>

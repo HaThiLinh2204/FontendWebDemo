@@ -1,0 +1,71 @@
+
+* {
+    font-family: "Quicksand", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .page-phukien {
+    /* margin: 10px 30px;
+    padding-top: 200px; */
+    padding: 200px 30px 10px 30px;
+    background-color: #f1f1f1;
+  }
+  .page-phukien .title-page h2 {
+    font-size: 20px;
+    /* font-family: "Quicksand", sans-serif; */
+    font-weight: 600 !important;
+    font-style: sans-serif;
+  }
+  .page-phukien .container-main {
+    display: flex;
+  }
+  .page-phukien .container-main .navbar-filter {
+    width: 30%;
+  }
+  .page-phukien .container-page {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .page-phukien .container-item {
+    display: block;
+    /* flex-direction: column; */
+    max-width: 300px;
+    margin: 20px 10px;
+    background-color: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* border: solid 1px #000000; */
+    padding-bottom: 10px;
+    overflow: auto;
+  }
+  .page-phukien .container-item:hover {
+    opacity: 0.5;
+  }
+
+  .page-phukien .container-item img {
+    display: block;
+    width: 250px;
+    height: 400px;
+    object-fit: cover;
+    object-position: 28% 0;
+  }
+
+  .page-phukien .container-item .item-name {
+    margin-top: 10px;
+    max-width: 250px;
+    font-size: 18px;
+    padding: 0 5px;
+    text-align: center;
+    font-weight: bold;
+    max-height: 100px;
+    height: 70px;
+  }
+  .page-phukien .container-item .item-price {
+    margin-top: 10px;
+    font-size: 20px;
+    color: brown;
+    text-align: center;
+    font-weight: bold;
+  }

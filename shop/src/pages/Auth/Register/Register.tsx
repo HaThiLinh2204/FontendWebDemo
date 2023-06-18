@@ -3,8 +3,8 @@ import './Register.css';
 import { Link } from "react-router-dom";
 function Register(){
     return(
-        <div class="register-page">
-            <div class="form-signup">
+        <div className="register-page">
+            <div className="form-signup">
                 <div className="headit">
                 <h4>Sign Up</h4>
                 </div>

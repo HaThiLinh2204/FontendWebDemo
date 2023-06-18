@@ -1,9 +1,9 @@
-.register-page .form-signup{
-    width: 30%;
-    margin: 100px auto;
+.register-page .form-signup {
+  width: 30%;
+  margin: 100px auto;
 }
-.register-page .form{
-    /* margin: auto 10%; */
+.register-page {
+  padding-top: 150px;
 }
 .register-page .subbt:hover {
   background-color: #79b42b;
@@ -25,14 +25,14 @@
   width: 150px !important;
   margin-left: 35% !important;
 }
-.register-page .link-login{
-    margin-left: 52%;
+.register-page .link-login {
+  margin-left: 40%;
 }
 .register-page .headit {
   position: relative;
   top: -10px;
 }
-.register-page  .headit h4 {
+.register-page .headit h4 {
   color: #474646;
   font-size: 30px;
 }
@@ -51,15 +51,15 @@
 .register-page .headit a {
   text-decoration: none;
 }
-.register-page .signUp-form{
-    display: flex;
-    flex-direction: column;
+.register-page .signUp-form {
+  display: flex;
+  flex-direction: column;
 }
 .register-page input {
-    width: 100%;
-    border: 1px solid #dddddd;
-    padding: 0.7em;
-    margin: 0.6em 0;
-    border-radius: 0;
-    margin-bottom: 15px;
-  }
+  width: 100%;
+  border: 1px solid #dddddd;
+  padding: 0.7em;
+  margin: 0.6em 0;
+  border-radius: 0;
+  margin-bottom: 15px;
+}
