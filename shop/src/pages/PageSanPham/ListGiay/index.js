@@ -1,25 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Giay.css";
+import axios from "axios";
+
 function Giay() {
+  const [shoes, setShoes] = useState([]);
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    // Hàm này sẽ tự động gọi khi component được hiển thị
+    // Gửi yêu cầu lấy danh sách giày từ API bên core
+    axios
+      .get("http://localhost:8002/api/giays")
+      .then((response) => {
+        setShoes(response.data); // Lưu danh sách giày vào state
+      })
+      .catch((error) => {
+        console.error("Error fetching shoes:", error);
+      });
+
+    axios
+      .get("http://localhost:8002/api/anhs")
+      .then((response) => {
+        setImages(response.data); // Lưu danh sách ảnh vào state
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+      });
+  }, []);
+
+  // Hàm hỗ trợ lấy ảnh đầu tiên cho mỗi giày
+  const getFirstImageForShoe = (shoeId) => {
+    return images.find((image) => image.idSanpham === shoeId);
+  };
+
+  console.log(shoes);
   return (
     <>
       <div className="page-giay">
         {/* <div className="title-page">
-          <h2>GIÀY</h2>
-        </div> */}
+            <h2>GIÀY</h2>
+          </div> */}
         <div className="container-main">
           <div className="navbar-filter"></div>
           <div className="container-page">
-            <div className="container-item">
-              <img
-                src="https://down-vn.img.susercontent.com/file/sg-11134201-22110-4ft3cj603gjv8b"
-                alt=""
-              />
-              <div className="item-name">
-                Giày Búp Bê Nữ Lolita, Sục Da Bóng Mũi Tròn Quai Ngang hót 2022
+            {shoes.map((shoe) => (
+              <div className="container-item" key={shoe.id}>
+                {/* <img
+                  src="https://down-vn.img.susercontent.com/file/sg-11134201-22110-4ft3cj603gjv8b"
+                  alt=""
+                /> */}
+                {getFirstImageForShoe(shoe.id) && (
+                  <img
+                    src={getFirstImageForShoe(shoe.id).url}
+                    alt={`Ảnh của giày ${shoe.tenGiay}`}
+                  />
+                )}
+                <div className="item-name">{shoe.tenGiay}</div>
+                <div className="item-price">{shoe.gia}đDDD</div>
               </div>
-              <div className="item-price">85000đ</div>
-            </div>
+            ))}
+            ;
             <div className="container-item">
               <img
                 src="https://down-vn.img.susercontent.com/file/b0fa92ff65dbfb88cd988caa793d7c62"
@@ -135,7 +174,7 @@ function Giay() {
                 alt=""
               />
               <div className="item-name">
-              Giày Thể Thao Đế Dày Phối Lưới Thoáng Khí Phong Cách Hàn Quốc 
+                Giày Thể Thao Đế Dày Phối Lưới Thoáng Khí Phong Cách Hàn Quốc
               </div>
               <div className="item-price">75000đ</div>
             </div>
@@ -145,7 +184,7 @@ function Giay() {
                 alt=""
               />
               <div className="item-name">
-              Giày cao gót nữ quai voan gót trong 5phân
+                Giày cao gót nữ quai voan gót trong 5phân
               </div>
               <div className="item-price">75000đ</div>
             </div>
@@ -155,7 +194,7 @@ function Giay() {
                 alt=""
               />
               <div className="item-name">
-              Sandal Cao Gót Đế Dày Hở Ngón Quai Chéo Chống Thấm Nước
+                Sandal Cao Gót Đế Dày Hở Ngón Quai Chéo Chống Thấm Nước
               </div>
               <div className="item-price">75000đ</div>
             </div>
@@ -165,7 +204,7 @@ function Giay() {
                 alt=""
               />
               <div className="item-name">
-              Atikota Giày Mary Jane Gót Dày Thoải Mái
+                Atikota Giày Mary Jane Gót Dày Thoải Mái
               </div>
               <div className="item-price">75000đ</div>
             </div>
@@ -175,4 +214,5 @@ function Giay() {
     </>
   );
 }
+//}
 export default Giay;

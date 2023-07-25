@@ -5,9 +5,9 @@ import Header from "./components/Header/header.tsx";
 import Login from "./pages/Auth/Login/Login.tsx";
 import Register from "./pages/Auth/Register/Register.tsx";
 import Footer from "./components/Footer/Footer.tsx";
-import Giay from "./pages/PageSanPham/Giay/Giay";
-import Tui from "./pages/PageSanPham/Tui/Tui";
-import PhuKien from "./pages/PageSanPham/PhuKien/PhuKien";
+import Giay from "./pages/PageSanPham/ListGiay/index";
+import Tui from "./pages/PageSanPham/ListTui/index";
+import PhuKien from "./pages/PageSanPham/ListPhuKien/index";
 function App() {
   return (
     <div>
