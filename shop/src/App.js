@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer.tsx";
 import Giay from "./pages/PageSanPham/ListGiay/index";
 import Tui from "./pages/PageSanPham/ListTui/index";
 import PhuKien from "./pages/PageSanPham/ListPhuKien/index";
+import DetailGiay from "./pages/PageSanPham/ListGiay/DetailGiay";
 function App() {
   return (
     <div>
@@ -17,9 +18,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/giay" element={<Giay />}/>
-          <Route path="/tui" element={<Tui/>}/>
-          <Route path="/phukien" element={<PhuKien />}/>
+          <Route path="/giay" element={<Giay />} />
+          <Route path="/tui" element={<Tui />} />
+          <Route path="/phukien" element={<PhuKien />} />
+          <Route path="/giay/:id" element={<DetailGiay />} />
         </Routes>
         <Footer />
       </Router>

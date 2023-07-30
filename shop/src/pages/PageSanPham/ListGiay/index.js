@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Giay.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
+import { removeDiacritics } from "D:/Gr1/FontendWebDemo/shop/src/services/utils/utils";
 function Giay() {
   const [shoes, setShoes] = useState([]);
   const [images, setImages] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [minPrice, setMinPrice] = useState(""); // Giá thấp nhất
+  const [maxPrice, setMaxPrice] = useState(""); // Giá cao nhất
   useEffect(() => {
     // Hàm này sẽ tự động gọi khi component được hiển thị
     // Gửi yêu cầu lấy danh sách giày từ API bên core
@@ -31,7 +36,63 @@ function Giay() {
   const getFirstImageForShoe = (shoeId) => {
     return images.find((image) => image.idSanpham === shoeId);
   };
+  // Hàm xử lý khi người dùng nhập từ khóa tìm kiếm
+  const handleSearchChange = (event) => {
+    setSearchKeyword(event.target.value);
+  };
 
+  // Hàm xử lý khi người dùng nhập giá thấp nhất
+  const handleMinPriceChange = (event) => {
+    setMinPrice(event.target.value);
+  };
+
+  // Hàm xử lý khi người dùng nhập giá cao nhất
+  const handleMaxPriceChange = (event) => {
+    setMaxPrice(event.target.value);
+  };
+  // Hàm lọc danh sách giày theo từ khóa tìm kiếm và khoảng giá
+  const filteredShoes = shoes.filter((shoe) => {
+    const shoePrice = parseInt(shoe.gia);
+
+    // Kiểm tra nếu có nhập giá thấp nhất và giá cao nhất
+    if (minPrice && maxPrice) {
+      return (
+        shoePrice >= parseInt(minPrice) &&
+        shoePrice <= parseInt(maxPrice) &&
+        removeDiacritics(shoe.tenGiay.toLowerCase()).includes(
+          removeDiacritics(searchKeyword.toLowerCase())
+        )
+      );
+    }
+    // Kiểm tra nếu chỉ có nhập giá thấp nhất
+    else if (minPrice) {
+      return (
+        shoePrice >= parseInt(minPrice) &&
+        removeDiacritics(shoe.tenGiay.toLowerCase()).includes(
+          removeDiacritics(searchKeyword.toLowerCase())
+        )
+      );
+    }
+    // Kiểm tra nếu chỉ có nhập giá cao nhất
+    else if (maxPrice) {
+      return (
+        shoePrice <= parseInt(maxPrice) &&
+        removeDiacritics(shoe.tenGiay.toLowerCase()).includes(
+          removeDiacritics(searchKeyword.toLowerCase())
+        )
+      );
+    }
+    // Trường hợp không nhập giá thấp nhất và giá cao nhất
+    return removeDiacritics(shoe.tenGiay.toLowerCase()).includes(
+      removeDiacritics(searchKeyword.toLowerCase())
+    );
+  });
+
+  // // Hàm lọc danh sách giày theo từ khóa tìm kiếm
+  // const filteredShoes = shoes.filter((shoe) =>
+  // removeDiacritics(shoe.tenGiay.toLowerCase()).includes(
+  //   removeDiacritics(searchKeyword.toLowerCase()))
+  // );
   console.log(shoes);
   return (
     <>
@@ -40,22 +101,66 @@ function Giay() {
             <h2>GIÀY</h2>
           </div> */}
         <div className="container-main">
-          <div className="navbar-filter"></div>
+          <div className="navbar-filter">
+            {/* Thêm input để người dùng nhập từ khóa tìm kiếm */}
+            <div className="navbar-filter-item1">
+              <input
+                type="text"
+                placeholder="Tìm kiếm giày..."
+                value={searchKeyword}
+                onChange={handleSearchChange}
+                className="search-box"
+              />
+              <button type="submit" className="button-search">
+                Search
+              </button>
+            </div>
+            <div className="navbar-filter-item2">
+              <label style={{ fontSize: "20px", fontWeight: "bold" }}>
+                {" "}
+                Khoảng giá:
+              </label>
+              <input
+                type="number"
+                placeholder="đ TỪ"
+                value={minPrice}
+                onChange={handleMinPriceChange}
+              />
+              -
+              <input
+                type="number"
+                placeholder="đ ĐẾN"
+                value={maxPrice}
+                onChange={handleMaxPriceChange}
+              />
+            </div>
+          </div>
+          <div className="result-count" style={{ textAlign: "right" }}>
+            {filteredShoes.length} kết quả được tìm thấy
+          </div>
           <div className="container-page">
-            {shoes.map((shoe) => (
+            {filteredShoes.map((shoe) => (
               <div className="container-item" key={shoe.id}>
-                {/* <img
+                <Link to={`/giay/${shoe.id}`}>
+                  {/* <img
                   src="https://down-vn.img.susercontent.com/file/sg-11134201-22110-4ft3cj603gjv8b"
                   alt=""
                 /> */}
-                {getFirstImageForShoe(shoe.id) && (
-                  <img
-                    src={getFirstImageForShoe(shoe.id).url}
-                    alt={`Ảnh của giày ${shoe.tenGiay}`}
-                  />
-                )}
-                <div className="item-name">{shoe.tenGiay}</div>
-                <div className="item-price">{shoe.gia}đDDD</div>
+
+                  {getFirstImageForShoe(shoe.id) && (
+
+
+                        <img
+                          src={getFirstImageForShoe(shoe.id).url}
+                          alt={`Ảnh của giày ${shoe.tenGiay}`}
+                        />
+
+
+                  )}
+
+                  <div className="item-name">{shoe.tenGiay}</div>
+                  <div className="item-price">{shoe.gia}đDDD</div>
+                </Link>
               </div>
             ))}
             ;
