@@ -45,7 +45,9 @@ function DetailGiay() {
   React.useEffect(() => {
     if (selectedColor && selectedSize) {
       // Calculate available quantity based on selected color and size
-      const selectedSizeObj = shoeSizes.find((size) => size.mauSac === selectedColor && size.size === selectedSize);
+      const selectedSizeObj = shoeSizes.find(
+        (size) => size.mauSac === selectedColor && size.size === selectedSize
+      );
       if (selectedSizeObj) {
         setAvailableQuantity(selectedSizeObj.soLuong);
       } else {
@@ -53,7 +55,6 @@ function DetailGiay() {
       }
     }
   }, [selectedColor, selectedSize, shoeSizes]);
-
 
   if (!shoe) {
     return <div>Loading...</div>;
@@ -86,7 +87,7 @@ function DetailGiay() {
           <h2>{shoe.tenGiay}</h2>
           <span
             style={{
-              display:'block',
+              display: "block",
               color: "#D0011B",
               fontSize: "25px",
               marginTop: "20px",
@@ -95,16 +96,20 @@ function DetailGiay() {
           >
             {shoe.gia} đ
           </span>
-          <p>Colors:</p>
+          <div style={{marginTop:'150px'}}>
+            <button style={{width:'200px',height:'50px', color:'#EE4D2D', borderColor:'red',marginRight:'20px', fontSize:'20px'}}>Thêm vào giỏ hàng</button>
+            <button  style={{width:'200px',height:'50px', color:'#ffffff', borderColor:'#ffffff',backgroundColor:'#EE4D2D',marginRight:'20px', fontSize:'20px'}}>Mua ngay</button>
+          </div>
+          {/* <p>Colors:</p>
           {shoeSizes.map((sizes) => (
             <button
               key={sizes.id}
               onClick={() => setSelectedColor(sizes.mauSac)}
               style={{ backgroundColor: sizes.mauSac, marginRight: "5px" }}
             />
-          ))}
+          ))} */}
 
-<div>
+          {/* <div>
             <p>Sizes:</p>
             {shoeSizes
               .filter((size) => size.mauSac === selectedColor)
@@ -117,16 +122,15 @@ function DetailGiay() {
                   {size.size}
                 </button>
               ))}
-          </div>
-          {selectedColor && selectedSize && (
+          </div> */}
+          {/* {selectedColor && selectedSize && (
             <p>Available Quantity: {availableQuantity}</p>
-          )}
-
+          )} */}
         </div>
       </div>
-      <div style={{marginTop:'20px'}}>
-        <p style={{fontWeight:'bold'}}>MÔ TẢ : </p>
-        <p style={{fontSize:'20px', marginTop:'5px'}}>{shoe.moTa}</p>
+      <div style={{ marginTop: "20px" }}>
+        <p style={{ fontWeight: "bold" }}>MÔ TẢ : </p>
+        <p style={{ fontSize: "20px", marginTop: "5px" }}>{shoe.moTa}</p>
       </div>
     </div>
   );

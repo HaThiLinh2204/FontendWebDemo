@@ -6,7 +6,7 @@
 }
 .page-detail-giay .shoe-contain {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .page-detail-giay .shoe-images {
   margin: 10px 30px 30px 10px;
@@ -15,7 +15,7 @@
   width: 300px;
   height: 400px;
 }
-.page-detail-giay .shoe-contain .Mo_ta_giay{
+.page-detail-giay .shoe-contain .Mo_ta_giay {
   margin-top: 10px;
   margin-left: 20px;
 }

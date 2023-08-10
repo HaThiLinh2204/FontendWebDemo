@@ -148,23 +148,19 @@ function Giay() {
                 /> */}
 
                   {getFirstImageForShoe(shoe.id) && (
-
-
-                        <img
-                          src={getFirstImageForShoe(shoe.id).url}
-                          alt={`Ảnh của giày ${shoe.tenGiay}`}
-                        />
-
-
+                    <img
+                      src={getFirstImageForShoe(shoe.id).url}
+                      alt={`Ảnh của giày ${shoe.tenGiay}`}
+                    />
                   )}
 
                   <div className="item-name">{shoe.tenGiay}</div>
-                  <div className="item-price">{shoe.gia}đDDD</div>
+                  <div className="item-price">{shoe.gia}đ</div>
                 </Link>
               </div>
             ))}
             ;
-            <div className="container-item">
+            {/* <div className="container-item">
               <img
                 src="https://down-vn.img.susercontent.com/file/b0fa92ff65dbfb88cd988caa793d7c62"
                 alt=""
@@ -312,7 +308,7 @@ function Giay() {
                 Atikota Giày Mary Jane Gót Dày Thoải Mái
               </div>
               <div className="item-price">75000đ</div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
